@@ -1,10 +1,12 @@
 // ==UserScript==
-// @name         George：知识星球PDF
-// @version      0.1
+// @name         George：知识星球打印为PDF
+// @version      0.4
 // @description  知识星球，改变页面样式，方便打印为PDF
 // @match        https://wx.zsxq.com/*
 // @author       George
 // @namespace    http://tampermonkey.net/
+// @license      MIT
+// @run-at document-end
 // ==/UserScript==
 
 (function() {
@@ -14,13 +16,27 @@
 
     window.onload=function(){
         console.log("onload");
+        tryAgain();
+    };
 
-        // console.log("添加触发打印按钮：克隆节点");
+    // 多次尝试
+    function tryAgain() {
+        if (!addButton())
+        {
+            console.log("添加按钮失败");
+            setTimeout(addButton,3500);
+        }
+    };
+
+    // 添加按钮
+    function addButton() {
+
+        console.log("添加触发打印按钮：克隆节点");
         var sourceNode = document.getElementsByClassName("like")[0]; // 获得被克隆的节点对象
-        // console.log("获取节点："+sourceNode);
+        console.log("获取节点："+sourceNode);
         if (!!sourceNode)
         {
-            // console.log("克隆节点");
+            console.log("克隆节点");
             var printBtn = sourceNode.cloneNode(true); // 克隆节点
 
             printBtn.title="收藏";
@@ -29,7 +45,9 @@
             printBtn.addEventListener("click", saveToPDF);
 
             sourceNode.parentNode.appendChild(printBtn); // 在父节点插入克隆的节点
+            return true;
         }
+        return false;
     };
 
     // 日期格式化
