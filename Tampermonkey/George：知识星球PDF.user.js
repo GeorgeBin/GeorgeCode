@@ -71,6 +71,11 @@
         return fmt;
     }
 
+    // 检查是否为正确的data
+    function isValidDate(date) {
+        return date instanceof Date && !isNaN(date.getTime())
+    }
+
     // 触发打印
     function saveToPDF() {
 
@@ -86,7 +91,14 @@
             var text = data.innerText;
             // console.log("文字："+text);
             var timeString = new Date(text); // 转换为日期对象
+            // console.log("timeString1="+timeString);
+
+            if(!isValidDate(timeString)) {
+                timeString = new Date();
+            }
+            // console.log("timeString2="+timeString);
             var format = dateFormat('yyyy.mm.dd - ',timeString);
+            // console.log("format="+format);
             document.getElementsByTagName("title")[0].innerText = format; // 知识星球原来的title，没有什么有用内容，这里改用文章发表日期作为默认命名
         }
 
