@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         George：知识星球打印为PDF
-// @version      0.4
+// @version      0.5
 // @description  知识星球，改变页面样式，方便打印为PDF
 // @match        https://wx.zsxq.com/*
 // @author       George
