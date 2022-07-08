@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         George：知识星球打印为PDF
-// @version      0.5
+// @version      0.6
 // @description  知识星球，改变页面样式，方便打印为PDF
 // @match        https://wx.zsxq.com/*
 // @author       George
@@ -26,7 +26,7 @@
             console.log("添加按钮失败");
             setTimeout(addButton,3500);
         }
-    };
+    }
 
     // 添加按钮
     function addButton() {
@@ -48,12 +48,12 @@
             return true;
         }
         return false;
-    };
+    }
 
     // 日期格式化
     function dateFormat(fmt, date) {
-        let ret;
-        const opt = {
+        var ret;
+        var opt = {
             "y+": date.getFullYear().toString(), // 年
             "m+": (date.getMonth() + 1).toString(), // 月
             "d+": date.getDate().toString(), // 日
@@ -62,12 +62,12 @@
             "s+": date.getSeconds().toString() // 秒
             // 有其他格式化字符需求可以继续添加，必须转化成字符串
         };
-        for (let k in opt) {
+        for (var k in opt) {
             ret = new RegExp("(" + k + ")").exec(fmt);
             if (ret) {
                 fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
-            };
-        };
+            }
+        }
         return fmt;
     }
 
@@ -101,7 +101,6 @@
             // console.log("format="+format);
             document.getElementsByTagName("title")[0].innerText = format; // 知识星球原来的title，没有什么有用内容，这里改用文章发表日期作为默认命名
         }
-
         window.print();
-    };
+    }
 })();
