@@ -1,8 +1,10 @@
-baseurl: "/"
+baseurl: "https://georgebin.github.io/"
 languageCode: "en-US"
-title: "A Hugo theme inspired by paged.js"
+title: "GeorgeBinDragon"
 theme: "hugo-paged"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
+hasCJKLanguage: true
+enableEmoji: true
 footnotereturnlinkcontents: "↩"
 
 outputs:
@@ -10,19 +12,35 @@ outputs:
 
 menu:
   main:
-    - name: Github
-      url: "https://github.com/yihui/hugo-paged"
-      weight: 10
-      params:
-        class: [optional]
+    - name: "首页"
+      url: "/"
+      weight: 1
+    - name: "博客"
+      url: "/blog/"
+      weight: 2
+    - name: "笔记"
+      url: "/note/"
+      weight: 3
+    - name: "文档"
+      url: "/docs/"
+      weight: 4
+    - name: "搜索"
+      url: "/search/"
+      weight: 5
+    - name: "关于"
+      url: "/about/"
+      weight: 6
+    - name: "Github"
+      url: "https://github.com/GeorgeBin"
+      weight: 7
 
 params:
-  description: "A website built through Hugo with the hugo-paged theme."
+  description: "Personal website of GeorgeBinDragon"
   logo:
     en:
-      alt: LOGO TEXT
+      alt: "GeorgeBinDragon"
       img: # a path to the logo
-  footer: "&copy; [Yihui Xie](https://yihui.org) {Year}"
+  footer: "&copy; [GeorgeBinDragon](https://georgebin.github.io/) {Year}"
 
 markup:
   highlight:

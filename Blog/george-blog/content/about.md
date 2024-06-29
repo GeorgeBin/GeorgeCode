@@ -2,10 +2,6 @@
 title: About Hugo Paged
 subtitle: A theme that started with four crop marks in the corners
 author: Yihui Xie
-menu:
-  main:
-    name: About
-    weight: 1
 ---
 
 I immediately loved the design of [the paged.js website](https://pagedjs.org) when I first saw it a couple of years ago.[^1] I have published a few books before, so the crop marks on the website caught my attention first, which gave me a familiar feel of printed books. The second thing that I appreciated was the rotated floral heart bullet behind the title of each page, i.e.,
